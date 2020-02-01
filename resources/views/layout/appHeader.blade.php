@@ -1,2 +1,2 @@
 <!-- app herder -->
-<div>header</div>
+<div>blade header</div>

@@ -1,4 +1,4 @@
 <!-- footer -->
 <div>
-    app footer
+    blade footer
 </div>

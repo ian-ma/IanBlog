@@ -5,8 +5,14 @@
  */
 
 // require('./bootstrap');
+import Vue from 'vue'
+import ElementUi from 'element-ui'
+import AppRoot from "./components/AppRoot";
+// const AppRoot = () => import('./components/AppRoot');
+import 'element-ui/lib/theme-chalk/index.css';
 
-window.Vue = require('vue');
+Vue.use(ElementUi);
+// window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -16,8 +22,8 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context('./', true, /\.vue$/i);
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -29,4 +35,5 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
+    render: h => h(AppRoot)
 });
