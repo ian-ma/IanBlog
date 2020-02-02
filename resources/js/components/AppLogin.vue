@@ -15,6 +15,7 @@
                     Login
                 </el-button>
             </el-form-item>
+            <a href="/register" style="font-size: small">Don't have account? Register here</a>
         </el-form>
     </el-card>
 
@@ -36,7 +37,8 @@
                 csrfToken: '',
                 formAction: '',
                 place_holder_height: 50,
-                windowHeight: 0
+                windowHeight: 0,
+                registerUrl:''
             }
         },
         methods: {},
@@ -55,6 +57,7 @@
             this.errors = window.App.errors;
             this.csrfToken = window.App.csrfToken;
             this.formAction = window.App.formAction;
+            this.registerUrl=window.App.registerUrl;
 
             //todo may be a bug while native speed emit notice
             if (this.errors.length > 0) {

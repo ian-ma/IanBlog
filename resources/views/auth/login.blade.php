@@ -5,7 +5,8 @@
             'csrfToken'=> csrf_token(),
             'email' => old('email'),
             'formAction'=> route('login'),
-            'errors'=>$errors->all()
+            'errors'=>$errors->all(),
+            'registerUrl'=>route('register')
         ]) !!};
     </script>
 {{--    @dump(json_encode($errors->getMessages()))--}}
