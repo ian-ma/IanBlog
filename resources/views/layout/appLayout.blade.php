@@ -9,14 +9,17 @@
     <title>IanBlog @yield('title') </title>
 
     <!-- Styles -->
-{{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet">--}}
     <script src="{{mix('js/app.js')}}" defer></script>
+    @yield('script')
     @yield('styles')
 
 </head>
 <body>
-{{--@include('layout.appHeader')--}}
-@yield('content')
-{{--@include('layout.appFooter')--}}
+<div id="app">
+    <app-root>
+        @yield('content')
+    </app-root>
+</div>
 </body>
 </html>

@@ -1,17 +1,10 @@
 <!-- index page -->
-@extends('/layout/appLayout')
+@extends('layout.appLayout')
 @section('content')
-{{--    vue page template--}}
-    <script type="text/x-template" id="page-template">
-        <app-root>
-        </app-root>
-    </script>
-
-{{--    vue mount point--}}
-    <div id="app">
-
-    </div>
+    <p>
+        index page
+    </p>
 @endsection
 @section('title')
-    - index
+    <p>index</p>
 @endsection

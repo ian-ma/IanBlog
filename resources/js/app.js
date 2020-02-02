@@ -10,6 +10,7 @@ import ElementUi from 'element-ui'
 import AppRoot from "./components/AppRoot";
 // const AppRoot = () => import('./components/AppRoot');
 import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/display.css'
 
 Vue.use(ElementUi);
 // window.Vue = require('vue');
@@ -35,5 +36,4 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
-    render: h => h(AppRoot)
 });
