@@ -1,9 +1,9 @@
 <!-- index page -->
 @extends('layout.appLayout')
 @section('content')
-    <p>
-        index page
-    </p>
+    <app-index-page>
+
+    </app-index-page>
 @endsection
 @section('title')
     <p>index</p>

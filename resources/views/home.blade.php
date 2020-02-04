@@ -1,23 +1,8 @@
 @extends('layout.appLayout')
 
 @section('content')
-<div >
-    <div >
-        <div>
-            <div >
-                <div >Dashboard</div>
-
-                <div >
-                    @if (session('status'))
-                        <div  >
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <app-user-home-page>
+        @auth
+        @endauth
+    </app-user-home-page>
 @endsection

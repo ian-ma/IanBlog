@@ -12,11 +12,9 @@
 {{--    @dump(json_encode($errors->getMessages()))--}}
 @endsection
 @section('content')
-    <app-login
-        form-action="{{ route('login') }}"
-        email="{{old('email')}}"
-        token="{{csrf_token()}}">
-    </app-login>
+    <app-login-page>
+
+    </app-login-page>
 
     {{--        <form method="POST" action="{{ route('login') }}">--}}
     {{--            @csrf--}}

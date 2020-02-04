@@ -17,9 +17,7 @@
 </head>
 <body>
 <div id="app">
-    <app-root>
         @yield('content')
-    </app-root>
 </div>
 </body>
 </html>

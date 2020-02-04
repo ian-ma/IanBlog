@@ -1,5 +1,5 @@
 <template>
-    <el-card style="width: 400px;margin: auto" :style="{marginTop:(windowHeight-360)/3 + 'px'}">
+    <el-card style="width: 400px;margin: auto" :style="{marginTop:(windowHeight-360)/3 + 'px'}" ref="main_element">
         <el-form :model="login_data" method="post" :action="formAction">
             <input type="hidden" name="_token" :value="csrfToken"></input>
             <el-form-item label="EMAIL ADDRESS">
@@ -24,9 +24,8 @@
 
 <script>
     export default {
-        name: "AppLogin",
-        props: {
-        },
+        name: "AppLoginForm",
+        props: {},
         data: function () {
             return {
                 login_data: {
@@ -38,12 +37,10 @@
                 formAction: '',
                 place_holder_height: 50,
                 windowHeight: 0,
-                registerUrl:''
+                registerUrl: ''
             }
         },
-        methods: {},
         mounted: function () {
-
             //
             this.windowHeight = window.innerHeight;
             window.addEventListener('resize', () => {
@@ -57,7 +54,7 @@
             this.errors = window.App.errors;
             this.csrfToken = window.App.csrfToken;
             this.formAction = window.App.formAction;
-            this.registerUrl=window.App.registerUrl;
+            this.registerUrl = window.App.registerUrl;
 
             //todo may be a bug while native speed emit notice
             if (this.errors.length > 0) {
@@ -67,8 +64,8 @@
                         {
                             title: 'Error',
                             message: window.App.errors[count],
-                            offset:60,
-                            duration:10000
+                            offset: 60,
+                            duration: 10000
                         }
                     );
                     count++;

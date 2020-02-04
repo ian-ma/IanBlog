@@ -13,7 +13,7 @@
     </script>
 @endsection
 @section('content')
-    <app-register></app-register>
+    <app-register-page></app-register-page>
     {{--    <form method="POST" action="{{ route('register') }}">--}}
     {{--        @csrf--}}
 

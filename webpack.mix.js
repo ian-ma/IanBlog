@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-//
+
 mix.config.webpackConfig.output = {
     chunkFilename: 'js/[name].bundle.js',
     publicPath: '/'
