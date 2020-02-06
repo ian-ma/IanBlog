@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('body')->nullable(false);
             $table->boolean('published')->default(false);
-            $table->integer('user_id')->nullable(false);
             $table->integer('post_category_id')->default('0');
             $table->timestamps();
         });
