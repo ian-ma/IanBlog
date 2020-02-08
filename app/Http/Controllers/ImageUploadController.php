@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Symfony\Component\VarDumper\Cloner\Data;
+
 
 class ImageUploadController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        $userEmailName=explode(\Auth::user()->email,"@")[0];
-        $urls=[];
-        foreach(request()->allFiles() as $file){
-            $filename=$userEmailName.'/'.now()->timestamp;
-            Storage::put($filename, $file);
-            array_push($urls,Storage::temporaryUrl($filename,now()->addMinutes(10)));
-        }
-        return response()->json($urls);
 
+        $file=Arr::first($request->allFiles());
+        $userEmailName = explode("@",Auth::user()->email)[0];
+        $filepath = $userEmailName;
+        $filename=now()->timestamp .'.'. $file->getClientOriginalExtension();
+        $url=Storage::putFileAs($filepath, $file,$filename);
+        $url ='https://ianma.s3.ca-central-1.amazonaws.com/'.$url;
+        return response()->json($url);
     }
 }

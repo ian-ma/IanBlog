@@ -18,9 +18,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/uploadtest', function () {
-    return view('uplaodTest');
-});
-Route::post('upload',"ImageUploadController");
+
+
 Route::resource('post','PostController');
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/home','HomeController@store')->name('homeStore');
+    Route::post('upload',"ImageUploadController");
+});
+
