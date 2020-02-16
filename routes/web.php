@@ -13,9 +13,17 @@
 
 use Illuminate\Support\Facades\DB;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/files', function () {
-    dump(Storage::files());
+Route::get('/', 'IndexController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('post','PostController')->middleware('auth');
+
+Route::post('upload', 'ImageUploadController')->middleware('auth');
+
+Route::post('posttest',function (){
+    return  Request::keys();
 });
